@@ -67,7 +67,7 @@ header, header .container, ul {
 
 .container {
     width: 100%;
-    min-width: 320px;
+    min-width: 288px;
     max-width: 428px;
     padding: 0 16px;
     margin: 0 auto;
@@ -77,10 +77,14 @@ header, header .container, ul {
     .container {
         max-width: 768px;
     }
+    footer .container {
+        max-width: 584px;
+    }
 }
 
 @media only screen and (min-width: 1128px) {
-  .container {
+  .container,
+  footer .container {
       max-width: 1128px;
       position: relative;
       padding-left: 0;
@@ -212,8 +216,8 @@ nav a.current::after {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 80px 35px 40px 40px;
     display: flex;
     flex-direction: column;
@@ -308,6 +312,8 @@ address {
         margin-bottom: 12px;
     }
     address a {
+        font-size: 12px;
+        line-height: 1.166;
         font-style: normal;
         color: var(--feng-text);
     }
@@ -319,6 +325,10 @@ address {
     }
     address li:not(:last-child) {
         margin-bottom: 0;
+    }
+    address a {
+        font-size: 16px;
+        line-height: 1.5;
     }
 }
 
@@ -409,9 +419,43 @@ ul.social-icons svg {
     color: var(--feng-white);
     background-color: #2E2F42;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
-    rgba(46, 47, 66, 0.7)), url(../images/hero.jpg);
+    rgba(46, 47, 66, 0.7)), url(../images/hero-phone.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@media (min-resolution: 192dpi) {
+    .efective-solutions {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
+        rgba(46, 47, 66, 0.7)), url(../images/hero-phone-2x.jpg);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .efective-solutions {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
+        rgba(46, 47, 66, 0.7)), url(../images/hero-tablet.jpg);
+    }
+    @media (min-resolution: 192dpi) {
+        .efective-solutions {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
+            rgba(46, 47, 66, 0.7)), url(../images/hero-tablet-2x.jpg);
+        }
+    }
+}
+
+@media only screen and (min-width: 1128px) {
+    .efective-solutions {
+        padding: 188px 0;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
+        rgba(46, 47, 66, 0.7)), url(../images/hero.jpg);
+    }
+    @media (min-resolution: 192dpi) {
+        .efective-solutions {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
+            rgba(46, 47, 66, 0.7)), url(../images/hero-2x.jpg);
+        }
+    }
 }
 
 .efective-solutions h1 {
@@ -431,9 +475,6 @@ ul.social-icons svg {
 }
 
 @media only screen and (min-width: 1128px) {
-    .efective-solutions {
-        padding: 188px 0;
-    }
     .efective-solutions h1 {
         margin: 0 auto 48px auto;
         font-size: 56px;
@@ -462,6 +503,11 @@ footer button:focus,
    }
 }
 
+.our-values ul {
+    gap: var(--feng-default-gap);
+    row-gap: 72px;
+}
+
 .our-values-icon {
     display: none;
 }
@@ -469,6 +515,10 @@ footer button:focus,
 @media only screen and (min-width: 1128px) {
     .our-values {
         padding-bottom: 0;
+    }
+    .our-values ul {
+        gap: var(--feng-default-gap);
+        row-gap: var(--feng-default-gap);
     }
     .our-values-icon {
         display: block;
@@ -512,6 +562,25 @@ footer button:focus,
 
 .our-team {
     background-color: var(--feng-light);
+}
+
+.our-team ul {
+    gap: var(--feng-default-gap);
+    row-gap: 72px;
+}
+
+@media only screen and (min-width: 768px) {
+    .our-team ul {
+        gap: var(--feng-default-gap);
+        row-gap: 64px;
+    }
+}
+
+@media only screen and (min-width: 1128px) {
+    .our-team ul {
+        gap: var(--feng-default-gap);
+        row-gap: 24px;
+    }
 }
 
 .our-team li {
@@ -648,15 +717,24 @@ footer button:focus,
 
 .customers ul {
     gap: 16px;
+    row-gap: 72px;
     flex-wrap: wrap;
 }
 
 @media only screen and (min-width: 768px) {
     .customers ul {
         gap: var(--feng-default-gap);
+        row-gap: 72px;
     }
     .customers ul li a {
         max-width: 168px;
+    }
+}
+
+@media only screen and (min-width: 1128px) {
+    .customers ul {
+        gap: var(--feng-default-gap);
+        row-gap: var(--feng-default-gap);
     }
 }
 
@@ -822,7 +900,7 @@ footer button:focus,
     padding: 16px 32px;
 }
 
-/* footer */
+/* FOOTER */
 
 footer {
     padding: 96px 0;
@@ -840,12 +918,18 @@ footer .container > ul {
         padding: 100px 0;
     }
     footer .container > ul {
-        gap: 120px;
+        gap: normal;
         flex-wrap: nowrap;
+    }
+    footer .container .about {
+        margin-right: 120px;
+    }
+    footer .social {
+        margin-right: 80px;
     }
 }
 
-footer .container > ul li:first-child {
+footer .container .about {
     max-width: 100%;
 }
 
@@ -860,7 +944,7 @@ footer .social {
 }
 
 @media only screen and (min-width: 768px) {
-    footer .container > ul li:first-child {
+    footer .container .about {
         max-width: 264px;
     }
     footer .social {
@@ -919,6 +1003,7 @@ footer .subscribe label {
     justify-content: left;
   }
   footer .subscribe label {
+    max-width: 264px;
     text-align: left;
   }
 }
